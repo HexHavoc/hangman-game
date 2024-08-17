@@ -19,11 +19,12 @@ class Hangman:
             self.word_hidden += '-'
         
         self.word_hidden_list = list(self.word_hidden)
+        self.display_word = self.word_hidden
         
            
     
     def word_prompt_check(self):
-        print(f"The word is {self.word_hidden}\n")
+        print(f"The word is {self.display_word}\n")
         
         while True:
             self.guess_word = input("Enter your guess: > ")
@@ -45,6 +46,9 @@ class Hangman:
                                 print(f"The word is {self.word}")
                                 play_choice = input("Wanna play again?(Y/N): > ").upper()
                                 if(play_choice == 'Y'):
+                                    print('\n')
+                                    print('\n')
+                                    print(f"The word is {self.display_word}\n")
                                     continue
                                 
                                 else:
@@ -63,6 +67,9 @@ class Hangman:
                         
                         play_choice = input("Wanna play again?(Y/N): > ").upper()
                         if(play_choice == 'Y'):
+                            print('\n')
+                            print('\n')
+                            print(f"The word is {self.display_word}\n")
                             continue
                         
                         else:
