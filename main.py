@@ -5,8 +5,8 @@ class Hangman:
        self.chance = 6 
        self.hangman_index = 1
        print("Welcome to Hangman Game\n")
-       print(f"You have {self.chance} chances :)\n")
-       print("So play carefully!!!\n")
+       print(f"You have {self.chance} chances so play carefully!!! :)\n")
+       print("\n")
        print("Lets Start!!!\n") 
        print(hangman_pics[0])
        print()
@@ -49,7 +49,7 @@ class Hangman:
                     print("\n")
                     if(self.chance == 0):
                         print("Good try but your chances reached 0 better luck next time :) \n")
-                        print(f"The word you were guessing was {self.word} \n")
+                        print(f"The word you were trying to guess was {self.word} \n")
                         
                         play_choice = input("Wanna play again?(Y/N): > ").upper()
                         if(play_choice == 'Y'):
@@ -58,7 +58,7 @@ class Hangman:
                         else:
                             break
                         
-                    print(f"You got only {self.chance} chances left :) \n")
+                    print(f"You have {self.chance} chances left :) \n")
                     self.hangman_index += 1
                     
                 
