@@ -49,5 +49,3 @@ hangman_pics = [
  / \  |
       |
 =========''']
-
-print(len(hangman_pics))
