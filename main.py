@@ -2,6 +2,7 @@ from hangman_art import *
 
 class Hangman:
     def __init__(self):
+       self.win_case = False 
        self.chance = 6 
        self.hangman_index = 1
        print("Welcome to Hangman Game\n")
@@ -30,8 +31,16 @@ class Hangman:
             self.guess_word = input("Enter your guess: > ")
             
             if(len(self.guess_word) > 1):
-                pass
+                if self.guess_word in self.word:
+                    for i in self.guess_word:
+                            index = self.word.index(i)
+                            self.word_hidden_list[index] = i
+                            self.word_hidden = ''.join(self.word_hidden_list)
+                            
+                            
+                print(self.word_hidden)
             
+            # this else deals with the case of if the user enters only one letter
             
             else:
                 if self.guess_word in self.word:
@@ -42,18 +51,22 @@ class Hangman:
                             self.word_hidden_list[index] = self.guess_word
                             self.word_hidden = ''.join(self.word_hidden_list)
                             if(self.word_hidden == self.word):
+                                self.win_case = True
                                 print("HOORAY YOU DID IT YOU GUESSED THE WORD!!!!!\n")
                                 print(f"The word is {self.word}")
-                                play_choice = input("Wanna play again?(Y/N): > ").upper()
-                                if(play_choice == 'Y'):
-                                    print('\n')
-                                    print('\n')
-                                    print(f"The word is {self.display_word}\n")
-                                    continue
-                                
-                                else:
-                                    break
-                                
+                                break
+                    
+                    if(self.win_case):        
+                        play_choice = input("Wanna play again?(Y/N): > ").upper()
+                        if(play_choice == 'Y'):
+                            print('\n')
+                            print('\n')
+                            print(f"The word is {self.display_word}\n")
+                            continue
+                        
+                        else:
+                            break
+                    
 
 
                 else:
