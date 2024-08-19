@@ -15,7 +15,7 @@ class Hangman:
             
     
     def word_pick(self):
-        self.word = random.choice(hangman_words)
+        self.word = "anirudh" #random.choice(hangman_words)
         self.word_hidden = ""
         for i in self.word:
             self.word_hidden += '-'
@@ -51,6 +51,8 @@ class Hangman:
                          print()
                          play_choice = input("Wanna play again?(Y/N): > ").upper()
                          if(play_choice == 'Y'):
+                            self.chance = 6
+                            self.hangman_index = 1
                             os.system("clear")
                             print(f"The word is {self.display_word}\n")
                             continue
@@ -58,9 +60,32 @@ class Hangman:
                          else:
                             break
                                 
-                        
-                print(self.word_hidden)
             
+                    else:
+                        self.chance -= 1
+                        print("Your guess is not in the word :( \n")
+                        print(hangman_pics[self.hangman_index])
+                        print("\n")
+                        if(self.chance == 0):
+                            print("Good try but your chances reached 0 better luck next time :) \n")
+                            print(f"The word you were trying to guess was {self.word} \n")
+                            
+                            play_choice = input("Wanna play again?(Y/N): > ").upper()
+                            if(play_choice == 'Y'):
+                                self.chance = 6
+                                self.hangman_index = 1
+                                os.system("clear")
+                                print(f"The word is {self.display_word}\n")
+                                continue
+                            
+                            else:
+                                break
+                            
+                        print(f"You have {self.chance} chances left :) \n")
+                        self.hangman_index += 1
+                    
+                    print(self.word_hidden)    
+                    
             # this else deals with the case of if the user enters only one letter
             
             else:
@@ -79,6 +104,8 @@ class Hangman:
                                 print()
                                 play_choice = input("Wanna play again?(Y/N): > ").upper()
                                 if(play_choice == 'Y'):
+                                    self.chance = 6
+                                    self.hangman_index = 1
                                     os.system("clear")
                                     print(f"The word is {self.display_word}\n")
                                     continue
@@ -100,6 +127,8 @@ class Hangman:
                         
                         play_choice = input("Wanna play again?(Y/N): > ").upper()
                         if(play_choice == 'Y'):
+                            self.chance = 6
+                            self.hangman_index = 1
                             os.system("clear")
                             print(f"The word is {self.display_word}\n")
                             continue
