@@ -1,4 +1,5 @@
 from hangman_art import *
+from wordbank import *
 import os
 
 class Hangman:
@@ -14,7 +15,7 @@ class Hangman:
             
     
     def word_pick(self):
-        self.word = "anirudh"
+        self.word = random.choice(hangman_words)
         self.word_hidden = ""
         for i in self.word:
             self.word_hidden += '-'
