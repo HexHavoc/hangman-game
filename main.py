@@ -40,6 +40,16 @@ class Hangman:
                             index = self.word.index(i)
                             self.word_hidden_list[index] = self.guess_word
                             self.word_hidden = ''.join(self.word_hidden_list)
+                            if(self.word_hidden == self.word):
+                                print("HOORAY YOU DID IT YOU GUESSED THE WORD!!!!!\n")
+                                print(f"The word is {self.word}")
+                                play_choice = input("Wanna play again?(Y/N): > ").upper()
+                                if(play_choice == 'Y'):
+                                    continue
+                                
+                                else:
+                                    break
+                                
 
 
                 else:
