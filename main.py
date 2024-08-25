@@ -1,4 +1,5 @@
 from hangman_art import *
+import os
 
 class Hangman:
     def __init__(self):
@@ -21,6 +22,8 @@ class Hangman:
         self.word_hidden_list = list(self.word_hidden)
         self.display_word = self.word_hidden
         
+    
+    
            
     
     def word_prompt_check(self):
@@ -47,8 +50,7 @@ class Hangman:
                          print()
                          play_choice = input("Wanna play again?(Y/N): > ").upper()
                          if(play_choice == 'Y'):
-                            print('\n')
-                            print('\n')
+                            os.system("clear")
                             print(f"The word is {self.display_word}\n")
                             continue
                             
@@ -76,8 +78,7 @@ class Hangman:
                                 print()
                                 play_choice = input("Wanna play again?(Y/N): > ").upper()
                                 if(play_choice == 'Y'):
-                                    print('\n')
-                                    print('\n')
+                                    os.system("clear")
                                     print(f"The word is {self.display_word}\n")
                                     continue
                                 
@@ -98,8 +99,7 @@ class Hangman:
                         
                         play_choice = input("Wanna play again?(Y/N): > ").upper()
                         if(play_choice == 'Y'):
-                            print('\n')
-                            print('\n')
+                            os.system("clear")
                             print(f"The word is {self.display_word}\n")
                             continue
                         
