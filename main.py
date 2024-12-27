@@ -1,5 +1,6 @@
 from hangman_art import *
 from wordbank import *
+from wordbank import *
 import os
 
 class Hangman:
@@ -15,14 +16,20 @@ class Hangman:
             
     
     def word_pick(self):
-        self.word = "anirudh" #random.choice(hangman_words)
+        self.word = "anirudh"
         self.word_hidden = ""
         for i in self.word:
             self.word_hidden += '-'
         
         self.word_hidden_list = list(self.word_hidden)
         self.display_word = self.word_hidden
-        
+
+
+    
+    def duplicate_check(self,guess_word,hidden_word):
+        if(guess_word in hidden_word):
+            print("You know this guess was already in the word try something else :)")
+            return True
     
     
            
@@ -37,6 +44,9 @@ class Hangman:
             # this if statement deals with when user enters more than 1 character
             
             if(len(self.guess_word) > 1):
+                if(self.duplicate_check(self.guess_word,self.word_hidden)):
+                    continue
+
                 if self.guess_word in self.word:
                     print("Congrats your guess is in the word!\n")
                     for i in self.guess_word:
@@ -61,34 +71,39 @@ class Hangman:
                             break
                                 
             
-                    else:
-                        self.chance -= 1
-                        print("Your guess is not in the word :( \n")
-                        print(hangman_pics[self.hangman_index])
-                        print("\n")
-                        if(self.chance == 0):
-                            print("Good try but your chances reached 0 better luck next time :) \n")
-                            print(f"The word you were trying to guess was {self.word} \n")
-                            
-                            play_choice = input("Wanna play again?(Y/N): > ").upper()
-                            if(play_choice == 'Y'):
-                                self.chance = 6
-                                self.hangman_index = 1
-                                os.system("clear")
-                                print(f"The word is {self.display_word}\n")
-                                continue
-                            
-                            else:
-                                break
-                            
-                        print(f"You have {self.chance} chances left :) \n")
-                        self.hangman_index += 1
-                    
-                    print(self.word_hidden)    
+                else:
+                    self.chance -= 1
+                    print("Your guess is not in the word :( \n")
+                    print(hangman_pics[self.hangman_index])
+                    print("\n")
+                    if(self.chance == 0):
+                        print("Good try but your chances reached 0 better luck next time :) \n")
+                        print(f"The word you were trying to guess was {self.word} \n")
+                        
+                        play_choice = input("Wanna play again?(Y/N): > ").upper()
+                        if(play_choice == 'Y'):
+                            self.chance = 6
+                            self.hangman_index = 1
+                            os.system("clear")
+                            print(f"The word is {self.display_word}\n")
+                            continue
+                        
+                        else:
+                            break
+                        
+                    print(f"You have {self.chance} chances left :) \n")
+                    self.hangman_index += 1
+                
+                print(self.word_hidden)  
+
+
                     
             # this else deals with the case of if the user enters only one letter
             
             else:
+                if(self.duplicate_check(self.guess_word,self.word_hidden)):
+                    continue
+                
                 if self.guess_word in self.word:
                     print("Congrats your guess is in the word!\n")
                     for i in self.word:
