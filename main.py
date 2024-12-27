@@ -59,10 +59,8 @@ class Hangman:
                          print()
                          play_choice = input("Wanna play again?(Y/N): > ").upper()
                          if(play_choice == 'Y'):
-                            self.chance = 6
-                            self.hangman_index = 1
-                            os.system("clear")
-                            print(f"The word is {self.display_word}\n")
+                            os.system('cls' if os.name == 'nt' else 'clear')
+                            self.__init__()
                             continue
                             
                          else:
@@ -80,10 +78,8 @@ class Hangman:
                         
                         play_choice = input("Wanna play again?(Y/N): > ").upper()
                         if(play_choice == 'Y'):
-                            self.chance = 6
-                            self.hangman_index = 1
-                            os.system("clear")
-                            print(f"The word is {self.display_word}\n")
+                            os.system('cls' if os.name == 'nt' else 'clear')
+                            self.__init__()
                             continue
                         
                         else:
@@ -121,10 +117,8 @@ class Hangman:
                                 print()
                                 play_choice = input("Wanna play again?(Y/N): > ").upper()
                                 if(play_choice == 'Y'):
-                                    self.chance = 6
-                                    self.hangman_index = 1
-                                    os.system("clear")
-                                    print(f"The word is {self.display_word}\n")
+                                    os.system('cls' if os.name == 'nt' else 'clear')
+                                    self.__init__()
                                     continue
                                 
                                 else:
@@ -144,10 +138,8 @@ class Hangman:
                         
                         play_choice = input("Wanna play again?(Y/N): > ").upper()
                         if(play_choice == 'Y'):
-                            self.chance = 6
-                            self.hangman_index = 1
-                            os.system("clear")
-                            print(f"The word is {self.display_word}\n")
+                            os.system('cls' if os.name == 'nt' else 'clear')
+                            self.__init__()
                             continue
                         
                         else:
