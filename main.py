@@ -22,8 +22,6 @@ class Hangman:
             self.word_hidden += '-'
         
         self.word_hidden_list = list(self.word_hidden)
-        self.display_word = self.word_hidden
-
 
     
     def duplicate_check(self,guess_word,hidden_word):
@@ -35,9 +33,9 @@ class Hangman:
            
     
     def word_prompt_check(self):
-        print(f"The word is {self.display_word}\n")
         
         while True:
+            print(f"The word is {self.word_hidden}\n")
             self.guess_word = input("Enter your guess: > ")
             
             
@@ -94,7 +92,6 @@ class Hangman:
                     print(f"You have {self.chance} chances left :) \n")
                     self.hangman_index += 1
                 
-                print(self.word_hidden)  
 
 
                     
@@ -154,9 +151,6 @@ class Hangman:
                     print(f"You have {self.chance} chances left :) \n")
                     self.hangman_index += 1
                     
-                
-                
-                print(f"The word is {self.word_hidden}\n")
             
             
     def call_everything(self):
