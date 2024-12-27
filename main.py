@@ -88,8 +88,13 @@ class Hangman:
                         
                         else:
                             break
-                        
-                    print(f"You have {self.chance} chances left :) \n")
+
+                    if(self.chance == 1):
+                        print(f"You only have {self.chance} more chance left :) \n")
+
+                    else:
+                        print(f"You have {self.chance} chances left :) \n")
+                    
                     self.hangman_index += 1
                 
 
@@ -148,7 +153,12 @@ class Hangman:
                         else:
                             break
                         
-                    print(f"You have {self.chance} chances left :) \n")
+                    if(self.chance == 1):
+                        print(f"You only have {self.chance} more chance left :) \n")
+
+                    else:
+                        print(f"You have {self.chance} chances left :) \n")
+                    
                     self.hangman_index += 1
                     
             
