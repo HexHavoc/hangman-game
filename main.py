@@ -17,6 +17,7 @@ class Hangman:
     
     def word_pick(self):
         self.word = random_word
+        print(self.word)
         self.word_hidden = ""
         for i in self.word:
             self.word_hidden += '-'
@@ -58,7 +59,7 @@ class Hangman:
                          print(f"The word is {self.word}\n")
                          print()
                          play_choice = input("Wanna play again?(y/n): > ").lower()
-                         if(play_choice == 'Y'):
+                         if(play_choice == 'y'):
                             os.system('cls' if os.name == 'nt' else 'clear')
                             self.__init__()
                             continue
@@ -77,7 +78,7 @@ class Hangman:
                         print(f"The word you were trying to guess was {self.word} \n")
                         
                         play_choice = input("Wanna play again?(y/n): > ").lower()
-                        if(play_choice == 'Y'):
+                        if(play_choice == 'y'):
                             os.system('cls' if os.name == 'nt' else 'clear')
                             self.__init__()
                             continue
@@ -116,7 +117,7 @@ class Hangman:
                                 print(f"The word is {self.word}\n")
                                 print()
                                 play_choice = input("Wanna play again?(y/n): > ").lower()
-                                if(play_choice == 'Y'):
+                                if(play_choice == 'y'):
                                     os.system('cls' if os.name == 'nt' else 'clear')
                                     self.__init__()
                                     continue
@@ -137,7 +138,7 @@ class Hangman:
                         print(f"The word you were trying to guess was {self.word} \n")
                         
                         play_choice = input("Wanna play again?(y/n): > ").lower()
-                        if(play_choice == 'Y'):
+                        if(play_choice == 'y'):
                             os.system('cls' if os.name == 'nt' else 'clear')
                             self.__init__()
                             continue
