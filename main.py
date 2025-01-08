@@ -13,10 +13,11 @@ class Hangman:
        print("Lets Start!!!\n") 
        print(hangman_pics[0])
        print()
-            
+       self.word_pick()
+         
     
     def word_pick(self):
-        self.word = random_word
+        self.word = random.choice(hangman_words)
         print(self.word)
         self.word_hidden = ""
         for i in self.word:
@@ -157,7 +158,6 @@ class Hangman:
             
             
     def call_everything(self):
-        self.word_pick()
         self.word_prompt_check()           
                 
     

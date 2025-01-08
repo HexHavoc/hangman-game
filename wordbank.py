@@ -91,5 +91,3 @@ hangman_words = [
 
 
 
-random_word = random.choice(hangman_words)
-
