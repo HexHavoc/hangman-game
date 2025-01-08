@@ -16,7 +16,7 @@ class Hangman:
             
     
     def word_pick(self):
-        self.word = "anirudh"
+        self.word = random_word
         self.word_hidden = ""
         for i in self.word:
             self.word_hidden += '-'
@@ -57,7 +57,7 @@ class Hangman:
                          print("HOORAY YOU DID IT YOU GUESSED THE WORD!!!!!\n")
                          print(f"The word is {self.word}\n")
                          print()
-                         play_choice = input("Wanna play again?(Y/N): > ").upper()
+                         play_choice = input("Wanna play again?(y/n): > ").lower()
                          if(play_choice == 'Y'):
                             os.system('cls' if os.name == 'nt' else 'clear')
                             self.__init__()
@@ -76,7 +76,7 @@ class Hangman:
                         print("Good try but your chances reached 0 better luck next time :) \n")
                         print(f"The word you were trying to guess was {self.word} \n")
                         
-                        play_choice = input("Wanna play again?(Y/N): > ").upper()
+                        play_choice = input("Wanna play again?(y/n): > ").lower()
                         if(play_choice == 'Y'):
                             os.system('cls' if os.name == 'nt' else 'clear')
                             self.__init__()
@@ -115,7 +115,7 @@ class Hangman:
                                 print("HOORAY YOU DID IT YOU GUESSED THE WORD!!!!!\n")
                                 print(f"The word is {self.word}\n")
                                 print()
-                                play_choice = input("Wanna play again?(Y/N): > ").upper()
+                                play_choice = input("Wanna play again?(y/n): > ").lower()
                                 if(play_choice == 'Y'):
                                     os.system('cls' if os.name == 'nt' else 'clear')
                                     self.__init__()
@@ -136,7 +136,7 @@ class Hangman:
                         print("Good try but your chances reached 0 better luck next time :) \n")
                         print(f"The word you were trying to guess was {self.word} \n")
                         
-                        play_choice = input("Wanna play again?(Y/N): > ").upper()
+                        play_choice = input("Wanna play again?(y/n): > ").lower()
                         if(play_choice == 'Y'):
                             os.system('cls' if os.name == 'nt' else 'clear')
                             self.__init__()

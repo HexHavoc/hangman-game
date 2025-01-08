@@ -109,3 +109,5 @@ hangman_words = [
     "Desire", "Ambition", "Aspiration", "Goal", "Objective"]
 
 
+random_word = random.choice(hangman_words)
+
