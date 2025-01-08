@@ -24,42 +24,31 @@ class Hangman:
             self.word_hidden += '-'
         
         self.word_hidden_list = list(self.word_hidden)
-
-    
-    def duplicate_check(self,guess_word,hidden_word):
-        if(guess_word in hidden_word):
-            print("You know this guess was already in the word try something else :)")
-            return True
-    
-    
            
     
     def word_prompt_check(self):
         
         while True:
             print(f"The word is {self.word_hidden}\n")
-            self.guess_word = input("Enter your guess: > ")
-            
+            self.guess_word = input("Enter your guess:> ")
             
             # this if statement deals with when user enters more than 1 character
             
             if(len(self.guess_word) > 1):
-                if(self.duplicate_check(self.guess_word,self.word_hidden)):
-                    continue
-
                 if self.guess_word in self.word:
                     print("Congrats your guess is in the word!\n")
                     for i in self.guess_word:
-                            index = self.word.index(i)
-                            self.word_hidden_list[index] = i
-                            self.word_hidden = ''.join(self.word_hidden_list)
+                        for index, char in enumerate(self.word):
+                            if char == i:
+                                self.word_hidden_list[index] = i
+                        self.word_hidden = ''.join(self.word_hidden_list)
                             
                     
                     if(self.word_hidden == self.word):
                          print("HOORAY YOU DID IT YOU GUESSED THE WORD!!!!!\n")
-                         print(f"The word is {self.word}\n")
+                         print(f"The word was {self.word}\n")
                          print()
-                         play_choice = input("Wanna play again?(y/n): > ").lower()
+                         play_choice = input("Wanna play again?(y/n):> ").lower()
                          if(play_choice == 'y'):
                             os.system('cls' if os.name == 'nt' else 'clear')
                             self.__init__()
@@ -78,7 +67,7 @@ class Hangman:
                         print("Good try but your chances reached 0 better luck next time :) \n")
                         print(f"The word you were trying to guess was {self.word} \n")
                         
-                        play_choice = input("Wanna play again?(y/n): > ").lower()
+                        play_choice = input("Wanna play again?(y/n):> ").lower()
                         if(play_choice == 'y'):
                             os.system('cls' if os.name == 'nt' else 'clear')
                             self.__init__()
@@ -101,23 +90,21 @@ class Hangman:
             # this else deals with the case of if the user enters only one letter
             
             else:
-                if(self.duplicate_check(self.guess_word,self.word_hidden)):
-                    continue
-                
                 if self.guess_word in self.word:
                     print("Congrats your guess is in the word!\n")
-                    for i in self.word:
-                        if(i == self.guess_word):
-                            index = self.word.index(i)
-                            self.word_hidden_list[index] = self.guess_word
+                    for i in self.guess_word:
+                        for index, char in enumerate(self.word):
+                            if char == i:
+                                self.word_hidden_list[index] = i
+
                             self.word_hidden = ''.join(self.word_hidden_list)
                     
                     if(self.word_hidden == self.word):
                                 
                                 print("HOORAY YOU DID IT YOU GUESSED THE WORD!!!!!\n")
-                                print(f"The word is {self.word}\n")
+                                print(f"The word was {self.word}\n")
                                 print()
-                                play_choice = input("Wanna play again?(y/n): > ").lower()
+                                play_choice = input("Wanna play again?(y/n):> ").lower()
                                 if(play_choice == 'y'):
                                     os.system('cls' if os.name == 'nt' else 'clear')
                                     self.__init__()
@@ -138,7 +125,7 @@ class Hangman:
                         print("Good try but your chances reached 0 better luck next time :) \n")
                         print(f"The word you were trying to guess was {self.word} \n")
                         
-                        play_choice = input("Wanna play again?(y/n): > ").lower()
+                        play_choice = input("Wanna play again?(y/n):> ").lower()
                         if(play_choice == 'y'):
                             os.system('cls' if os.name == 'nt' else 'clear')
                             self.__init__()
@@ -156,11 +143,9 @@ class Hangman:
                     self.hangman_index += 1
                     
             
-            
-    def call_everything(self):
-        self.word_prompt_check()           
+               
                 
     
 man = Hangman()
 
-man.call_everything()
+man.word_prompt_check()
